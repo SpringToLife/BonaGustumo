@@ -60,6 +60,7 @@ namespace BonaGustumo.Models
 
         [Display(Name = "Mémoriser le mot de passe ?")]
         public bool RememberMe { get; set; }
+    
     }
 
     public class RegisterViewModel
