@@ -50,34 +50,39 @@ namespace BonaGustumo.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                  
+                  
+                    var emailClaim = new Claim(ClaimTypes.Email, model.Email);
+                    var loginClaim = new Claim(ClaimTypes.NameIdentifier, model.Email);
+                    var claimsIdentity = new ClaimsIdentity(new[] { loginClaim }, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    var ctx = Request.GetOwinContext();
+                    var authenticationManager = ctx.Authentication;
+                    authenticationManager.SignIn(claimsIdentity);
+
+                    // Rediriger vers l'URL d'origine :
+                    if (Url.IsLocalUrl(ViewBag.ReturnUrl))
+                        return Redirect(ViewBag.ReturnUrl);
+                    // Par défaut, rediriger vers la page d'accueil :
+                    return RedirectToAction("Index", "Home");
+                    //return RedirectToLocal(returnUrl);
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
-                   
+
+
+                    return View(model);
                 }
-                return View(model);
             }
-                // L'authentification est réussie, 
-                // injecter l'identifiant utilisateur dans le cookie d'authentification :
-                var loginClaim = new Claim(ClaimTypes.NameIdentifier, model.Email);
-                var claimsIdentity = new ClaimsIdentity(new[] { loginClaim }, DefaultAuthenticationTypes.ApplicationCookie);
-                var ctx = Request.GetOwinContext();
-                var authenticationManager = ctx.Authentication;
-                authenticationManager.SignIn(claimsIdentity);
+       
+            return RedirectToLocal(returnUrl);
 
-                // Rediriger vers l'URL d'origine :
-                if (Url.IsLocalUrl(ViewBag.ReturnUrl))
-                    return Redirect(ViewBag.ReturnUrl);
-                // Par défaut, rediriger vers la page d'accueil :
-                return RedirectToAction("Index", "Home");
-            
         }
-           
 
-        //
-        // GET: /Account/Register
+
+            //
+            // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
