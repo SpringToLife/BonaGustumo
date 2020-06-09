@@ -50,12 +50,13 @@ namespace BonaGustumo.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                  
-                  
+
+               
+                
                     var emailClaim = new Claim(ClaimTypes.Email, model.Email);
                     var loginClaim = new Claim(ClaimTypes.NameIdentifier, model.Email);
                     var claimsIdentity = new ClaimsIdentity(new[] { loginClaim }, DefaultAuthenticationTypes.ApplicationCookie);
-
+                    //claimsIdentity.AddClaim(new Claim(ClaimTypes.Role,
                     var ctx = Request.GetOwinContext();
                     var authenticationManager = ctx.Authentication;
                     authenticationManager.SignIn(claimsIdentity);

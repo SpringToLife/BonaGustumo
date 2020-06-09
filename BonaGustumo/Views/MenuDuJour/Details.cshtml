@@ -1,0 +1,42 @@
+﻿@model BonaGustumo_Library.Model.MenuDuJour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MenuDuJour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plat_Titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plat_Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plat_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plat_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plat_Commentaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plat_Commentaire)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Plat_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

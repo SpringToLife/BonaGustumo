@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuDuJourController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +246,11 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\MenuDuJour\Create.cshtml" />
+    <Content Include="Views\MenuDuJour\Delete.cshtml" />
+    <Content Include="Views\MenuDuJour\Details.cshtml" />
+    <Content Include="Views\MenuDuJour\Edit.cshtml" />
+    <Content Include="Views\MenuDuJour\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,6 +267,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BonaGustumo_Library\BonaGustumo_Library.csproj">
+      <Project>{b134ce65-e042-4c2d-9ca0-4bc306a92b2d}</Project>
+      <Name>BonaGustumo_Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

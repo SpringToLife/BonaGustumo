@@ -1,12 +1,42 @@
-﻿@{
+﻿@model BonaGustumo_Library.Model.MenuDuJour
+@{
     ViewBag.Title = "Home Page";
 }
+<div>
+    <h4>MenuDuJour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plat_Titre)
+        </dt>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <dd>
+            @Html.DisplayFor(model => model.Plat_Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plat_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plat_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plat_Commentaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plat_Commentaire)
+        </dd>
+
+    </dl>
 </div>
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
 
 <div class="row">
     <div class="col-md-4">
